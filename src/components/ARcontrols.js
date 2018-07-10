@@ -10,6 +10,7 @@ const arcontrols =(props)=>{
  console.log(controls);
     return (
         <div className={classes.controlBox}>
+        <div><span>Total Prices: </span> ${props.totalPrice} </div>
     {controls}
         </div>
     )
