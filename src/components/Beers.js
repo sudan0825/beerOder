@@ -11,7 +11,7 @@ const beers=(props)=>{
 
         })
         return (
-            <div >
+            <div className={classes.beers} >
             {transformOrder}
 
             </div>

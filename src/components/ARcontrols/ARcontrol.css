@@ -21,6 +21,8 @@
     width: 80px;
     color: white;
     font-weight: bold;
+    text-transform: capitalize;
+    
 }
 .less{
 

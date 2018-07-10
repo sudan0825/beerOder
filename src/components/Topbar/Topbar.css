@@ -4,5 +4,8 @@
     display: flex;
     align-items: center;
     background-color: #643a82;
+    position: fixed;
+    top:0;
+    left: 0;
     
 }

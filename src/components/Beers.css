@@ -1,3 +1,4 @@
-.frame{
-    
+.beers{
+   height: 400px;
+   overflow: scroll;
 }
