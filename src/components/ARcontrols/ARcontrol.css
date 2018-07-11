@@ -15,6 +15,14 @@
     margin: 0 5px;
     border-radius: 6px;
     border: 1px solid #3f1060;
+    cursor: pointer;
+}
+
+.controlContainer button:disabled {
+    background-color: #554063;
+    border: 1px solid #41314c;
+    color: #ccc;
+    cursor: default;
 }
 .brand{
     padding: 10px;

@@ -1,0 +1,44 @@
+.checkOutSummary{
+    width: 280px;
+    min-height: 300px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    z-index: 10;
+    position: absolute;
+   
+    text-align: center;
+    padding: 10px;
+    top: 10%;
+    left:40%;
+}
+.orderWraper{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.brand{
+    width: 120px;
+    
+    
+}
+
+
+.brand>span{
+    width: 100px;
+    display: inline-block;
+    font-weight: 600;
+    text-align: left;
+}
+.price span{
+    font-weight: bold
+}
+
+@media only screen and (max-width:500px){
+    .checkOutSummary{
+        top:100px;
+        left:50px;
+        
+    }
+}

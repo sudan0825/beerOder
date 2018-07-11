@@ -1,9 +1,11 @@
 .navigationItem{
     display: flex;
     color: white;
+    
    
 }
 
 .navigationItem >div{
     margin: 0 14px;
+    cursor: pointer;
 }

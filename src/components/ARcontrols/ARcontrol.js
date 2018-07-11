@@ -4,7 +4,10 @@ import classes from './ARcontrol.css'
 const arcontrol =(props)=> (
         <div className={classes.controlContainer}>
             <div className={classes.brand}>{props.brand}</div>
-            <button className={classes.less}>Less</button>
+            <button 
+                className={classes.less} 
+                disabled={props.disabled}
+                onClick={props.remove}>Less</button>
             <button 
                className={classes.more}
                 onClick={props.add}>More</button>

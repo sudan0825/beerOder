@@ -10,3 +10,23 @@
 .controlBox span{
     font-weight: bold;
 }
+
+.controlButton button{
+    display: inline-block;
+     background-color: #310e49;
+    color: white;
+    width: 100px;
+    font-size: 16px;
+    padding: 10px;
+    margin: 0 15px;
+    border-radius: 6px;
+    border: 1px solid #3f1060;
+    cursor: pointer;
+    
+}
+.controlButton button:disabled {
+    background-color: #554063;
+    border: 1px solid #41314c;
+    color: #ccc;
+    cursor: default;
+}
