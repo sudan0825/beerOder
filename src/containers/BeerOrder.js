@@ -108,17 +108,18 @@ class BeerOrder extends Component {
          this.state.beers.forEach((beer, i)=>{
              disableLessButton[beer.name]=beer.number<=0
          })
-         let waitingLoading = null;
-         let serverCommunicate= this.state.error ? <p> beers can't be post!</p>: <Spinner/>
-         
-         if(this.state.loading) {
-         
-            waitingLoading=<Spinner/>
-         }
+        
+//         spinner
+//let serverCommunicate= this.state.error ? <p> beers can't be post!</p>: <Spinner/>
+//         
+//         if(this.state.loading) {
+//         
+//            serverCommunicate=<Spinner/>
+//         }
       
          return (
              <div>
-             {waitingLoading}
+          
               <Backdrop summaryWindowShow={this.state.summaryWindow}
                     cancelCheckOut={this.cancelCheckOut}/>
              <CheckOutSummary 
@@ -141,7 +142,7 @@ class BeerOrder extends Component {
                   clearOrder={this.clearOrder}
                   checkOut={this.checkOut}
               />
-             {serverCommunicate}
+            
              </div>
         
          )
