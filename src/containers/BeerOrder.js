@@ -3,6 +3,8 @@ import Beers from '../components/Beers';
 import ARcontrols from '../components/ARcontrols'
 import CheckOutSummary from '../components/checkOutSummary/checkOutSummary';
 import Backdrop from '../components/Backdrop/Backdrop';
+import Spinner from '../components/Spinner/Spinner';
+import axios from '../axios-beershop.js'
 
 
 
@@ -18,8 +20,25 @@ class BeerOrder extends Component {
         ],
         
         totalPrice:0,
-        summaryWindow:false
+        summaryWindow:false,
+        error:false,
+        loading:false
        }
+
+
+    componentDidMount(){
+        axios.get('https://beershop20180711.firebaseio.com/beersInfo.json')
+          .then(response =>{
+            
+            //this.setState({beers:response.data})
+            console.log(response)
+        })
+        .catch(error => {
+            
+            //this.setState({error:true});
+            console.log(error)
+        })
+    }
     addBeer=(brand, price)=>{
      
         let newBeers=[...this.state.beers];
@@ -66,9 +85,22 @@ class BeerOrder extends Component {
         this.setState({summaryWindow:false})
     }
     submitOrder=()=>{
-      
-        this.setState({summaryWindow:false})
-          alert("send to backend")
+        //waiting for post data to server
+        this.setState({loading: true});
+        
+        
+        const order = {
+            beers: this.state.beers,
+            price: this.state.totalPrice
+        }
+        
+        axios.post('orders.json', order)
+        .then(response => {
+            this.setState({loading:false, summaryWindow:false})
+        })
+        .catch (error=>{
+             this.setState({loading:false, summaryWindow:false})
+        })
     }
      render(){
          let disableLessButton=[];
@@ -76,9 +108,17 @@ class BeerOrder extends Component {
          this.state.beers.forEach((beer, i)=>{
              disableLessButton[beer.name]=beer.number<=0
          })
+         let waitingLoading = null;
+         let serverCommunicate= this.state.error ? <p> beers can't be post!</p>: <Spinner/>
+         
+         if(this.state.loading) {
+         
+            waitingLoading=<Spinner/>
+         }
       
          return (
              <div>
+             {waitingLoading}
               <Backdrop summaryWindowShow={this.state.summaryWindow}
                     cancelCheckOut={this.cancelCheckOut}/>
              <CheckOutSummary 
@@ -101,7 +141,7 @@ class BeerOrder extends Component {
                   clearOrder={this.clearOrder}
                   checkOut={this.checkOut}
               />
-             
+             {serverCommunicate}
              </div>
         
          )
